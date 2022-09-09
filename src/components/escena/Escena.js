@@ -26,36 +26,30 @@ const texts = [
       "Mentrestant, altres herois no van tenir tanta sort en la seva elecció...",
   },
 ];
-const elements = texts.map((text) => {
-  return <Rectangulo isClick={false}>{text.phrase}</Rectangulo>;
-});
 
 function Escena() {
-  //useState para cambiar el estado
   const [value, setValue] = useState(0);
-  //funciones para iluminar el botón comprando el número de la escena en la que estás con el número vinculado a cada uno de los botones.
+  const elements = texts.map((text) => {
+    return (
+      <Rectangulo isClick={text.id === value ? true : false} key={text.id}>
+        {text.phrase}
+      </Rectangulo>
+    );
+  });
+
   const previousText = () => {
-    setValue(value - 1);
-    console.log(value);
+    value>1?setValue(value-1):setValue(value);
   };
 
   const nextText = () => {
-    setValue(value + 1);
-    let elements2 = texts.map((text)=>{
-      if (text.id === value) {
-        return <Rectangulo isClick={true}>{text.phrase}</Rectangulo>;
-      }
-     });
-    console.log(value)
-    return elements2;
+    value<4?setValue(value+1):setValue(value);
   };
 
   return (
     <>
       <Button onClick={previousText}>Anterior</Button>
       <Button onClick={nextText}>Següent</Button>
-
-      <p>{elements}</p>
+      <div>{elements}</div>
     </>
   );
 }
