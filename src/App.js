@@ -1,15 +1,25 @@
 import "./App.css";
 import Escena from "./components/escena/Escena.js";
-// import { Button } from "./styled";
-// import { useState } from "react";
+import { useState } from "react";
+import { Button } from "./styled.js";
 
 function App() {
+  const [click, setClick] = useState(true);
 
+  const handleClick = () => {
+    setClick(false);
+  };
   return (
     <div className="App">
-      {/* <Button onClick={previousText}>Anterior</Button>
-      <Button onClick={nextText}>Següent</Button> */}
-      <Escena />
+      {click ? (
+        <div className="start">
+      <h2 className="title">Comença la història de l'heroi prement el següent botó</h2><Button onClick={ handleClick }>Start</Button>
+        </div>
+      ) : (
+        <div>
+          <Escena />
+        </div>
+      )}
     </div>
   );
 }
