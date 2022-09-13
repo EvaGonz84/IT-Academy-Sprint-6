@@ -1,7 +1,7 @@
-import "./App.css";
-import Escena from "./components/escena/Escena.js";
+import Escena from "./components/Escena/Escena.js";
 import { useState } from "react";
-import { Button } from "./styled.js";
+import { Button, Start } from "./styled.js";
+
 
 function App() {
   const [click, setClick] = useState(true);
@@ -12,9 +12,9 @@ function App() {
   return (
     <div className="App">
       {click ? (
-        <div className="start">
+        <Start>
       <h2 className="title">Comença la història de l'heroi prement el següent botó</h2><Button onClick={ handleClick }>Start</Button>
-        </div>
+        </Start>
       ) : (
         <div>
           <Escena />

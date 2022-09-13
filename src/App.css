@@ -1,9 +1,0 @@
-.start {
-  height: 500px;
-  margin :20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
