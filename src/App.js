@@ -17,7 +17,7 @@ function App() {
         </Start>
       ) : (
         <div>
-          <Escena />
+          <Escena/>
         </div>
       )}
     </div>
